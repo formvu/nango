@@ -40,6 +40,8 @@ ENV NANGO_LOGS_ES_URL=${NANGO_LOGS_ES_URL:-http://nango-elasticsearch:9200}
 ENV NANGO_LOGS_ES_USER=${NANGO_LOGS_ES_USER}
 ENV NANGO_LOGS_ES_PWD=${NANGO_LOGS_ES_PWD}
 
+RUN echo "All envs" && env
+
 COPY ./packages/shared/providers.yaml /usr/nango-server/src/packages/shared/providers.yaml
 
 EXPOSE ${PORT:-3003}

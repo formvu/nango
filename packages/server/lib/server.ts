@@ -20,6 +20,8 @@ import { refreshTokens } from './refreshTokens.js';
 const { NANGO_MIGRATE_AT_START = 'true' } = process.env;
 const logger = getLogger('Server');
 
+console.log("ENVS", process.env);
+
 const app = express();
 
 // Log all requests
