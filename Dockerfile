@@ -1,109 +1,32 @@
-# ------------------
-# Tmp image to precompile
-# ------------------
-FROM badouralix/curl-jq AS precompile
+FROM nangohq/nango-server:hosted
 
-COPY tsconfig.build.json /tsconfig.build.json
-RUN jq '. | del(.references[] | select(.path == "packages/cli"))' tsconfig.build.json > tsconfig.docker.json
+ENV NANGO_DB_MIGRATION_FOLDER=/usr/nango-server/src/packages/database/lib/migrations
+ENV NANGO_ENCRYPTION_KEY=${NANGO_ENCRYPTION_KEY}
+ENV NANGO_DB_USER=${NANGO_DB_USER}
+ENV NANGO_DB_PASSWORD=${NANGO_DB_PASSWORD}
+ENV NANGO_DB_HOST=${NANGO_DB_HOST}
+ENV NANGO_DB_NAME=${NANGO_DB_NAME}
+ENV NANGO_DB_SSL=${NANGO_DB_SSL}
+ENV NANGO_DB_ADDITIONAL_SCHEMAS=${NANGO_DB_ADDITIONAL_SCHEMAS}
+ENV NANGO_DB_POOL_MIN=${NANGO_DB_POOL_MIN}
+ENV NANGO_DB_POOL_MAX=${NANGO_DB_POOL_MAX}
+ENV RECORDS_DATABASE_URL=${RECORDS_DATABASE_URL:-postgresql://nango:nango@nango-db:5432/nango}
+ENV SERVER_PORT=${SERVER_PORT}
+ENV NANGO_SERVER_URL=${NANGO_SERVER_URL:-http://localhost:3003}
+ENV NANGO_DASHBOARD_USERNAME=${NANGO_DASHBOARD_USERNAME}
+ENV NANGO_DASHBOARD_PASSWORD=${NANGO_DASHBOARD_PASSWORD}
+ENV LOG_LEVEL=${LOG_LEVEL:-info}
+ENV TELEMETRY=${TELEMETRY}
+ENV NANGO_SERVER_WEBSOCKETS_PATH=${NANGO_SERVER_WEBSOCKETS_PATH}
+ENV NANGO_LOGS_ENABLED=${NANGO_LOGS_ENABLED:-false}
+ENV NANGO_LOGS_ES_URL=${NANGO_LOGS_ES_URL:-http://nango-elasticsearch:9200}
+ENV NANGO_LOGS_ES_USER=${NANGO_LOGS_ES_USER}
+ENV NANGO_LOGS_ES_PWD=${NANGO_LOGS_ES_PWD}
 
-# ------------------
-# New tmp image
-# ------------------
-FROM node:20.12.2-bullseye-slim AS build
+COPY ./packages/shared/providers.yaml /usr/nango-server/src/packages/shared/providers.yaml
 
-# Setup the app WORKDIR
-WORKDIR /app/tmp
+EXPOSE ${PORT:-3003}
+WORKDIR /usr/nango-server/src
 
-# Copy and install dependencies separately from the app's code
-# To leverage Docker's cache when no dependency has changed
-COPY packages/data-ingestion/package.json ./packages/data-ingestion/package.json
-COPY packages/database/package.json ./packages/database/package.json
-COPY packages/frontend/package.json ./packages/frontend/package.json
-COPY packages/jobs/package.json ./packages/jobs/package.json
-COPY packages/kvstore/package.json ./packages/kvstore/package.json
-COPY packages/logs/package.json ./packages/logs/package.json
-COPY packages/node-client/package.json ./packages/node-client/package.json
-COPY packages/nango-yaml/package.json ./packages/nango-yaml/package.json
-COPY packages/orchestrator/package.json ./packages/orchestrator/package.json
-COPY packages/persist/package.json ./packages/persist/package.json
-COPY packages/records/package.json ./packages/records/package.json
-COPY packages/runner/package.json ./packages/runner/package.json
-COPY packages/scheduler/package.json ./packages/scheduler/package.json
-COPY packages/server/package.json ./packages/server/package.json
-COPY packages/shared/package.json ./packages/shared/package.json
-COPY packages/types/package.json ./packages/types/package.json
-COPY packages/utils/package.json ./packages/utils/package.json
-COPY packages/webapp/package.json ./packages/webapp/package.json
-COPY packages/webhooks/package.json ./packages/webhooks/package.json
-COPY package*.json  ./
-
-# Install every dependencies
-RUN true \
-  && npm ci
-
-# At this stage we copy back all sources
-COPY --from=precompile --chown=node:node tsconfig.docker.json /app/tmp
-COPY . /app/tmp
-
-# Build the backend separately because it can be cached --in the same build for production and staging-- when we change the env vars
-RUN true \
-  && npm run ts-build:docker
-
-# /!\ Do not set NODE_ENV=production before building, it will break some modules
-# ENV NODE_ENV=production
-ARG image_env
-ARG posthog_key
-ARG sentry_key
-
-# TODO: remove the need for this
-ENV REACT_APP_ENV $image_env
-ENV REACT_APP_PUBLIC_POSTHOG_HOST https://app.posthog.com
-ENV REACT_APP_PUBLIC_POSTHOG_KEY $posthog_key
-ENV REACT_APP_PUBLIC_SENTRY_KEY $sentry_key
-
-# Build the frontend
-RUN true \
-  && npm run -w @nangohq/webapp build
-
-# Clean src
-RUN true \
-  && rm -rf packages/*/src \
-  && rm -rf packages/*/lib \
-  && rm -rf packages/webapp/public \
-  && rm -rf packages/webapp/node_modules
-
-# Clean dev dependencies
-RUN true \
-  && npm prune --omit=dev --omit=peer --omit=optional
-
-# ---- Web ----
-# Resulting new, minimal image
-FROM node:20.12.2-bullseye-slim as web
-
-ARG PORT
-
-# - Bash is just to be able to log inside the image and have a decent shell
-RUN true \
-  && apt update && apt-get install -y bash ca-certificates \
-  && update-ca-certificates \
-  && rm -rf /var/lib/apt/lists/* \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
-
-# Do not use root to run the app
-USER node
-
-WORKDIR /app/nango
-
-# Code
-COPY --from=build --chown=node:node /app/tmp /app/nango
-
-ARG image_env
-ARG git_hash
-
-# ENV PORT=$(ARG.PORT)
-ENV NODE_ENV=production
-ENV IMAGE_ENV $image_env
-ENV GIT_HASH $git_hash
-ENV SERVER_RUN_MODE=DOCKERIZED
-
-EXPOSE $PORT
+# CMD [ "npm", "start" ]
+CMD [ "node", "packages/server/dist/server.js" ]
