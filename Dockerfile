@@ -80,6 +80,7 @@ RUN true \
 # Resulting new, minimal image
 FROM node:20.12.2-bullseye-slim as web
 
+ARG PORT
 
 # - Bash is just to be able to log inside the image and have a decent shell
 RUN true \
@@ -99,10 +100,10 @@ COPY --from=build --chown=node:node /app/tmp /app/nango
 ARG image_env
 ARG git_hash
 
-ENV PORT=8080
+# ENV PORT=$(ARG.PORT)
 ENV NODE_ENV=production
 ENV IMAGE_ENV $image_env
 ENV GIT_HASH $git_hash
 ENV SERVER_RUN_MODE=DOCKERIZED
 
-EXPOSE 8080
+EXPOSE $PORT

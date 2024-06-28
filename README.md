@@ -29,6 +29,30 @@ Nango is a single API to interact with all other external APIs. It should be the
 
 <img src="/docs-v2/images/overview.png">
 
+## Local (docker + local redis/postgre)
+
+Create the Nango DB and User
+```
+CREATE USER nango_admin PASSWORD 'secret';
+CREATE DATABASE nango;
+GRANT ALL PRIVILEGES ON DATABASE nango TO nango_admin;
+ALTER USER nango_admin CREATEDB;
+ALTER USER nango_admin WITH SUPERUSER;
+ALTER USER nango_admin WITH LOGIN;
+```
+
+Edit .env to include the VARs
+```
+NANGO_DB_USER=nango_admin
+NANGO_DB_PASSWORD=secret
+NANGO_DB_HOST=localhost
+NANGO_DB_PORT=5432
+NANGO_DB_NAME=nango
+NANGO_DB_SSL=false
+TELEMETRY=false
+NANGO_LOGS_ENABLED=false
+```
+
 ## 👩‍💻 Sample code 
 
 Initiate a new OAuth flow from your frontend:
