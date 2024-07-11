@@ -42,12 +42,13 @@ ENV NANGO_LOGS_ES_URL=${NANGO_LOGS_ES_URL:-http://nango-elasticsearch:9200}
 ENV NANGO_LOGS_ES_USER=${NANGO_LOGS_ES_USER}
 ENV NANGO_LOGS_ES_PWD=${NANGO_LOGS_ES_PWD}
 
-RUN echo "All envs" && env
+COPY extra_providers.yaml /usr/nango-server/src/extra_providers.yaml
+RUN cat /usr/nango-server/src/extra_providers.yaml >> /usr/nango-server/src/packages/shared/providers.yaml
+RUN ls /usr/nango-server/src/packages/webapp/public/images/template-logos
 
-COPY ./packages/shared/providers.yaml /usr/nango-server/src/packages/shared/providers.yaml
+COPY run.sh /usr/bin/run.sh
 
 EXPOSE ${PORT:-3003}
 WORKDIR /usr/nango-server/src
 
-# CMD [ "npm", "start" ]
-CMD [ "node", "packages/server/dist/server.js" ]
+ENTRYPOINT [ "bash", "/usr/bin/run.sh" ]

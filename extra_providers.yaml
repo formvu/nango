@@ -1,0 +1,20 @@
+bluescape:
+    categories:
+        - design
+        - productivity
+    auth_mode: OAUTH2
+    authorization_url: https://api.apps.us.bluescape.com/v3/oauth2/authorize
+    token_url: https://api.apps.us.bluescape.com/v3/oauth2/token
+    default_scopes:
+        - offline_access
+        - v2legacy
+    scope_separator: ' '
+    authorization_params:
+        response_type: code
+    token_params:
+        grant_type: authorization_code
+    refresh_params:
+        grant_type: refresh_token
+    proxy:
+        base_url: https://api.apps.us.bluescape.com
+    docs: https://docs.nango.dev/integrations/all/bluescape
