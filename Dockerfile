@@ -44,8 +44,10 @@ ENV NANGO_LOGS_ES_PWD=${NANGO_LOGS_ES_PWD}
 
 COPY extra_providers.yaml /usr/nango-server/src/extra_providers.yaml
 RUN cat /usr/nango-server/src/extra_providers.yaml >> /usr/nango-server/src/packages/shared/providers.yaml
+RUN echo "wtf"
 RUN ls /usr/nango-server/src/packages/
 RUN ls /usr/nango-server/src/packages/webapp/
+RUN echo "end wtf"
 
 COPY run.sh /usr/bin/run.sh
 
