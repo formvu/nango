@@ -18,10 +18,10 @@ bluescape:
     proxy:
         base_url: https://api.apps.us.bluescape.com
     docs: https://docs.nango.dev/integrations/all/bluescape
-twilio-basic:
+twilio:
     categories:
         - communication
-    auth_mode: BASIC
+    auth_mode: NONE
     proxy:
         base_url: https://api.twilio.com/2010-04-01/Accounts
     docs: https://docs.nango.dev/integrations/all/twilio-basic
