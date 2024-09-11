@@ -25,3 +25,11 @@ twilio:
     proxy:
         base_url: https://api.twilio.com/2010-04-01/Accounts
     docs: https://docs.nango.dev/integrations/all/twilio-basic
+workiz:
+    categories:
+        - communication
+        - productivity
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://api.workiz.com/api/v1
+    docs: https://docs.nango.dev/integrations/all/workiz
