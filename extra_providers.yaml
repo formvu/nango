@@ -29,7 +29,7 @@ workiz:
     categories:
         - communication
         - productivity
-    auth_mode: API_KEY
+    auth_mode: NONE
     proxy:
         base_url: https://api.workiz.com/api/v1
     docs: https://docs.nango.dev/integrations/all/workiz
