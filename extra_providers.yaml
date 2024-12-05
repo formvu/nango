@@ -33,8 +33,8 @@ workiz:
     proxy:
         base_url: https://api.workiz.com/api/v1
     docs: https://docs.nango.dev/integrations/all/workiz
-openai-assistant:
-    display_name: OpenAI Assistant
+openai-sales-insights:
+    display_name: OpenAI Sales Insights
     categories:
         - productivity
         - dev-tools
