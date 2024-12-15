@@ -56,3 +56,24 @@ openai-assistant:
             type: string
             title: API Key
             description: The API key for your OpenAI account
+nearmap:
+    display_name: NearMap
+    categories:
+        - productivity
+        - map
+        - ai-insights
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://api.nearmap.com
+        headers:
+            Authorization: Apikey ${apiKey}
+            Content-Type: application/json
+        verification:
+            method: GET
+            endpoint: coverage/v2/point/-74.043970,40.688640?date=single&since=5M
+    docs: https://docs.nango.dev/integrations/all/nearmap
+    credentials:
+        apiKey:
+            type: string
+            title: API Key
+            description: The API key for your Nearmap account
