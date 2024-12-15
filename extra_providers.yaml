@@ -68,6 +68,7 @@ nearmap:
         headers:
             Authorization: Apikey ${apiKey}
             Content-Type: application/json
+            Referer: api.formvu.com
         verification:
             method: GET
             endpoint: coverage/v2/point/-74.043970,40.688640?date=single&since=5M
