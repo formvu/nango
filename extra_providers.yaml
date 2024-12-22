@@ -34,7 +34,7 @@ workiz:
         base_url: https://api.workiz.com/api/v1
     docs: https://docs.nango.dev/integrations/all/workiz
 openai-assistant:
-    display_name: OpenAI Assistant
+    display_name: AI Assistants
     categories:
         - productivity
         - dev-tools
@@ -79,7 +79,7 @@ nearmap:
             title: API Key
             description: The API key for your Nearmap account
 serviceminder:
-    display_name: ServiceMinder
+    display_name: Service Minder
     categories:
         - productivity
         - communication
@@ -87,3 +87,15 @@ serviceminder:
     proxy:
         base_url: https://serviceminder.com/api
     docs: https://docs.nango.dev/integrations/all/serviceminder
+largeAreaMeasurement:
+    display_name: Large Area Measurement
+    categories:
+        - productivity
+        - communication
+        - architecture
+        - landscaping
+        - ai-insights
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/form-entries/
+    docs: https://docs.nango.dev/integrations/all/largeAreaMeasurement
