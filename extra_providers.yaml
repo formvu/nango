@@ -78,3 +78,12 @@ nearmap:
             type: string
             title: API Key
             description: The API key for your Nearmap account
+serviceminder:
+    display_name: ServiceMinder
+    categories:
+        - productivity
+        - communication
+    auth_mode: NONE
+    proxy:
+        base_url: https://serviceminder.com/api
+    docs: https://docs.nango.dev/integrations/all/serviceminder
