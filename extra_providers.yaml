@@ -85,7 +85,7 @@ serviceminder:
         - communication
     auth_mode: NONE
     proxy:
-        base_url: https://serviceminder.com/api
+        base_url: https://serviceminder.com
     docs: https://docs.nango.dev/integrations/all/serviceminder
 largeAreaMeasurement:
     display_name: Large Area Measurement
