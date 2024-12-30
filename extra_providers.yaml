@@ -99,3 +99,13 @@ largeAreaMeasurement:
     proxy:
         base_url: https://api.formvu.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/largeAreaMeasurement
+geocode:
+    display_name: Geocode
+    categories:
+        - productivity
+        - communication
+        - data-enabled
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.geocod.io
+    docs: https://docs.nango.dev/integrations/all/geocode
