@@ -102,6 +102,18 @@ large-area-measurement:
     proxy:
         base_url: https://api.formvu.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/largeAreaMeasurement
+largeAreaMeasurement:
+    display_name: Large Area Measurement
+    categories:
+        - productivity
+        - communication
+        - architecture
+        - landscaping
+        - ai-insights
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/form-entries/
+    docs: https://docs.nango.dev/integrations/all/largeAreaMeasurement
 geocode:
     display_name: Geocode
     categories:
