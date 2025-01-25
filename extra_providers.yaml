@@ -87,7 +87,7 @@ serviceminder:
     proxy:
         base_url: https://serviceminder.com
     docs: https://docs.nango.dev/integrations/all/serviceminder
-largeAreaMeasurement:
+large-area-measurement:
     display_name: Large Area Measurement
     categories:
         - productivity
@@ -109,3 +109,13 @@ geocode:
     proxy:
         base_url: https://api.geocod.io
     docs: https://docs.nango.dev/integrations/all/geocode
+regrid:
+    display_name: ReGrid
+    categories:
+        - real estate
+        - architecture
+        - ai-insights
+    auth_mode: NONE
+    proxy:
+        base_url: https://app.regrid.com/api/v2/parcel
+    docs: https://docs.nango.dev/integrations/all/regrid
