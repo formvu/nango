@@ -1,4 +1,4 @@
-FROM nangohq/nango-server:hosted
+FROM nangohq/nango-server:hosted@sha256:2ed38f8a320b71b8ab087397d446355eca5d37f7a3ae65ff0f7c7d92f17edea6
 
 ARG NANGO_ENCRYPTION_KEY
 ARG NANGO_DB_USER
