@@ -1,4 +1,5 @@
 bluescape:
+    display_name: Bluescape
     categories:
         - design
         - productivity
@@ -19,6 +20,7 @@ bluescape:
         base_url: https://api.apps.us.bluescape.com
     docs: https://docs.nango.dev/integrations/all/bluescape
 twilio:
+    display_name: Twilio
     categories:
         - communication
     auth_mode: NONE
@@ -26,6 +28,7 @@ twilio:
         base_url: https://api.twilio.com/2010-04-01/Accounts
     docs: https://docs.nango.dev/integrations/all/twilio-basic
 workiz:
+    display_name: Workiz
     categories:
         - communication
         - productivity
