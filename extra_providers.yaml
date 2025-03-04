@@ -134,3 +134,13 @@ regrid:
     proxy:
         base_url: https://app.regrid.com/api/v2/parcel
     docs: https://docs.nango.dev/integrations/all/regrid
+hubspot-private-app:
+    display_name: Hubspot Private App
+    categories:
+        - crm
+        - productivity
+        - communication
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.hubapi.com/crm/v3
+    docs: https://docs.nango.dev/integrations/all/hubspot
