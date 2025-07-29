@@ -144,3 +144,24 @@ hubspot-private-app:
     proxy:
         base_url: https://api.hubapi.com/crm/v3
     docs: https://docs.nango.dev/integrations/all/hubspot
+formvue-ai:
+    display_name: AI Assistants
+    categories:
+        - productivity
+        - dev-tools
+        - ai-insights
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://d.formvue.com
+        headers:
+            Authorization: Bearer ${apiKey}
+            Content-Type: application/json
+        verification:
+            method: GET
+            endpoint: v1/info
+    docs: https://docs.nango.dev/integrations/all/formvue-ai
+    credentials:
+        apiKey:
+            type: string
+            title: API Key
+            description: The API key for your FormVue account
