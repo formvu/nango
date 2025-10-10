@@ -165,8 +165,8 @@ formvue-ai:
             type: string
             title: API Key
             description: The API key for your FormVue account
-mailchimp:
-    display_name: Mailchimp
+mailchimp-apikey:
+    display_name: Mailchimp ApiKey
     categories:
         - marketing
         - email
