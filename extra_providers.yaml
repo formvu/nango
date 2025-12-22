@@ -182,3 +182,12 @@ mailchimp-apikey:
             type: string
             title: API Key
             description: The API key for your MailChimp account
+receipt:
+    display_name: Receipt Service
+    categories:
+        - productivity
+        - communication
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/form-entries/
+    docs: https://docs.nango.dev/integrations/all/receipt
