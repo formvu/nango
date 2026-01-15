@@ -191,3 +191,14 @@ receipt:
     proxy:
         base_url: https://api.formvu.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/receipt
+render:
+    display_name: FormVue Render
+    categories:
+        - home services
+        - interior design
+        - Gen AI
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/form-entries/
+    docs: https://docs.nango.dev/integrations/all/render
+    
