@@ -201,4 +201,12 @@ render:
     proxy:
         base_url: https://api.formvu.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/render
-    
+scout:
+    display_name: FormVue Scout
+    categories:
+        - GTM
+        - Productivity Tools
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/form-entries/
+    docs: https://docs.nango.dev/integrations/all/scout
