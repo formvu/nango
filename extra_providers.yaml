@@ -208,5 +208,5 @@ scout:
         - Productivity Tools
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/form-entries/
+        base_url: https://gtm.formvue.com/api/webhooks/submissions/
     docs: https://docs.nango.dev/integrations/all/scout
