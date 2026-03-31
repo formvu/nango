@@ -210,3 +210,27 @@ scout:
     proxy:
         base_url: https://gtm.formvue.com/api/webhooks/submissions/
     docs: https://docs.nango.dev/integrations/all/scout
+highlevel-oauth:
+    categories:
+        - marketing
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/integrations/
+    docs: https://docs.nango.dev/integrations/all/highlevel
+jobber:
+    categories:
+        - field-service
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/integrations/
+    docs: https://getjobber.com/developer/
+servicefusion:
+    categories:
+        - field-service
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/integrations/
+    docs: https://docs.servicefusion.com/
