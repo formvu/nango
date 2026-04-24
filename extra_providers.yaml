@@ -241,3 +241,10 @@ salesforce-oauth:
     proxy:
         base_url: https://api.formvu.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/salesforce
+jobtread:
+    categories:
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvu.com/api/v1/integrations/
+    docs: https://docs.nango.dev/integrations/all/jobtread
