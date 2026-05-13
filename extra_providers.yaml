@@ -248,3 +248,12 @@ jobtread:
     proxy:
         base_url: https://api.formvu.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/jobtread
+formvue-cpq:
+    display_name: FormVue CPQ
+    categories:
+        - GTM
+        - Productivity Tools
+    auth_mode: NONE
+    proxy:
+        base_url: https://cpq.formvue.com/cpq/view/
+    docs: https://docs.nango.dev/integrations/all/formvue-cpq
