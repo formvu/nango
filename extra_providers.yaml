@@ -266,3 +266,11 @@ housecall-pro:
     proxy:
         base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.housecallpro.com/
+housecall-pro-oauth:
+    display_name: HouseCall Pro oAuth
+        - field-service
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvue.com/api/v1/integrations/
+    docs: https://docs.housecallpro.com/
