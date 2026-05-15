@@ -71,7 +71,7 @@ nearmap:
         headers:
             Authorization: Apikey ${apiKey}
             Content-Type: application/json
-            Referer: api.formvu.com
+            Referer: api.formvue.com
         verification:
             method: GET
             endpoint: coverage/v2/point/-74.043970,40.688640?date=single&since=5M
@@ -100,7 +100,7 @@ large-area-measurement:
         - ai-insights
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/form-entries/
+        base_url: https://api.formvue.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/largeAreaMeasurement
 largeAreaMeasurement:
     display_name: Large Area Measurement
@@ -112,7 +112,7 @@ largeAreaMeasurement:
         - ai-insights
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/form-entries/
+        base_url: https://api.formvue.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/largeAreaMeasurement
 geocode:
     display_name: Geocode
@@ -189,7 +189,7 @@ receipt:
         - communication
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/form-entries/
+        base_url: https://api.formvue.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/receipt
 render:
     display_name: FormVue Render
@@ -199,7 +199,7 @@ render:
         - Gen AI
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/form-entries/
+        base_url: https://api.formvue.com/api/v1/form-entries/
     docs: https://docs.nango.dev/integrations/all/render
 scout:
     display_name: FormVue Scout
@@ -216,7 +216,7 @@ highlevel-oauth:
         - crm
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/integrations/
+        base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/highlevel
 jobber:
     categories:
@@ -224,7 +224,7 @@ jobber:
         - crm
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/integrations/
+        base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://getjobber.com/developer/
 servicefusion:
     categories:
@@ -232,21 +232,21 @@ servicefusion:
         - crm
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/integrations/
+        base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.servicefusion.com/
 salesforce-oauth:
     categories:
         - crm
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/integrations/
+        base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/salesforce
 jobtread:
     categories:
         - crm
     auth_mode: NONE
     proxy:
-        base_url: https://api.formvu.com/api/v1/integrations/
+        base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/jobtread
 formvue-cpq:
     display_name: FormVue CPQ
@@ -257,3 +257,12 @@ formvue-cpq:
     proxy:
         base_url: https://cpq.formvue.com/cpq/view/
     docs: https://docs.nango.dev/integrations/all/formvue-cpq
+housecall-pro:
+    display_name: HouseCall Pro
+    categories:
+        - field-service
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvue.com/api/v1/integrations/
+    docs: https://docs.housecallpro.com/
