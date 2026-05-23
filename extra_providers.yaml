@@ -274,3 +274,11 @@ housecall-pro-oauth:
     proxy:
         base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.housecallpro.com/
+vision:
+    display_name: FormVue Vision
+        - ai
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvue.com/api/v1/integrations/
+    docs: https://docs.nango.dev/integrations/all/formvue-vision
