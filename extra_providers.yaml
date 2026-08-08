@@ -282,3 +282,11 @@ vision:
     proxy:
         base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/formvue-vision
+cleaning-estimation-ai:
+    display_name: FormVue Cleaninng Services
+        - ai
+        - crm
+    auth_mode: NONE
+    proxy:
+        base_url: https://api.formvue.com/api/v1/integrations/
+    docs: https://docs.nango.dev/integrations/all/cleaning-estimation-ai
