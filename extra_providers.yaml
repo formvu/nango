@@ -290,3 +290,12 @@ cleaning-estimation-ai:
     proxy:
         base_url: https://api.formvue.com/api/v1/integrations/
     docs: https://docs.nango.dev/integrations/all/cleaning-estimation-ai
+formvue-one:
+    display_name: FormVue One
+    categories:
+        - crm
+        - Productivity Tools
+    auth_mode: NONE
+    proxy:
+        base_url: https://formvue-one.com/ingest/
+    docs: https://docs.nango.dev/integrations/all/formvue-one
